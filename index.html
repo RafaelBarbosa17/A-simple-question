@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Simple Question</title>
+</head>
+<style>
+    body {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        height: 100vh;
+    }
+    main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .question {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        border: solid 2px #2c2a2a;
+        background-color: #c0b7b7;
+        position: absolute;
+        top: 30vh;
+        height: 200px;
+        box-shadow: 10px 10px 20px 1px black;
+    }
+    .question-response {
+        justify-content: center;
+    }
+    .close-box {
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
+    }
+    .close {
+        color: red;
+        margin: 3px;
+    }
+    .response, .question h1 {
+        margin: 0 30px 30px 30px
+    }
+    #yes, #no, #ok {
+        font-size: 20px;
+        margin: 10px;
+    }
+    html {
+        text-align: center;
+    }
+</style>
+<body>
+    <main>
+        <h1>Pronto para uma simples pergunta?</h1>
+        <div>
+            <button id="ok">Ok</button>
+        </div>
+        <div class="question">
+            <div class="close-box">
+                <button class="close" id="close">x</button>
+            </div>
+            <h1>Você é gay??</h3>
+            <div class="response">
+                <button id="yes">Sim</button>
+                <button id="no">Não</button>
+            </div>
+        </div>
+    </main>
+    <script>
+        const no = document.querySelector('#no');
+        const close = document.querySelector('#close');
+        const yes = document.querySelector('#yes');
+        const ok = document.querySelector('#ok');
+        const question = document.querySelector('.question')
+        
+        const eleE = [no, close];
+        const hummm = [no, close, yes];
+
+        ok.addEventListener('click', () => {
+            question.style.display = 'flex'
+        })
+
+        hummm.forEach(hum => {
+            hum.addEventListener('click', () => {
+                question.innerHTML = "<h1>Então tu é kkkkkk</h1>"
+                question.classList.add('question-response')
+            })
+        })
+
+        eleE.forEach(e => {
+            e.addEventListener('mouseover', () => {
+                e.innerHTML = 'Sim'
+            })
+        })
+        no.addEventListener('mouseout', () => {
+            no.innerHTML = 'Não'
+        })
+        close.addEventListener('mouseout', () => {
+            close.innerHTML = 'x'
+        })
+
+    </script>
+</body>
+</html>
